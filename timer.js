@@ -9,14 +9,14 @@ buttonEventListener('reload', 'click', ()=> { location.reload() }); // リセッ
 // スタートボタンの動作、押されたらスタートしてストップボタンと差し替える
 function startBtn() {
   start();
-  replaceButton('button', 'start','button', 'stop', 'Stop');
+  replaceButton('start-button', 'start','button', 'stop', 'Stop');
   buttonEventListener('stop', 'click', stop);
 }
 
 // ストップボタンの動作、押されたらストップしてスタートボタンと差し替える
 function stop() {
   clearInterval(setIntervalID);
-  replaceButton('button', 'stop','button', 'start', 'Start');
+  replaceButton('start-button', 'stop','button', 'start', 'Start');
   buttonEventListener('start', 'click', startBtn);
 }
 

@@ -3,7 +3,7 @@
 //ボタン表示変更リプレース用関数
 function replaceButton(parentID, oldChildID, createElement, newChildID, innerHTMLtext) {
   const parentElement = document.getElementById(`${parentID}`);
-  const oldChild = document.getElementById(`${oldChildID}`)
+  const oldChild = document.getElementById(`${oldChildID}`);
   const newChild = document .createElement(`${createElement}`);
   newChild.setAttribute('type', 'button');
   newChild.setAttribute('class', 'button');

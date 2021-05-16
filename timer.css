@@ -15,29 +15,32 @@
   font-size: 12px;
   text-shadow: none;
   height: 30px;
+  width: 310px;
   border-style: none;
   border-radius: 3px;
 }
 #start {
   background-color: rgb(64, 101, 189);
-  width: 240px;
-  margin-right: 4px;
 }
 
 #stop {
   background-color: rgb(53, 55, 61);
-  width: 240px;
-  margin-right: 4px;
 }
 
 #reload {
   background-color:  rgb(189, 89, 64);
-  width: 74px;
 }
 .watchtext {
   font-size: 10px;
 }
 
 .watchnum {
-  font-size: 25px;
+  font-size: 38px;
+}
+
+#div-hour {
+  margin-bottom: 4px;
+}
+#hour {
+  font-size: 20px;
 }
