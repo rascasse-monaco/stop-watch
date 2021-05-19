@@ -30,10 +30,17 @@ function makeNewButton(parentElementID, newElement, newElementId, className, inn
   newChild.innerHTML = innerHTMLText;
 }
 
-//ボタンのaddEventListener設定用関数
-function buttonEventListener(ID, event, funcName,) {
-  const ButtonID = document.getElementById(ID);
-  ButtonID.addEventListener(event, funcName, false);
+//ボタンのaddEventListener設定用クラス
+class EventListener {
+  constructor(Id, event, funcName) {
+    this.Id = Id;
+    this.event = event;
+    this.funcName = funcName;
+  }
+  set(){
+    const buttonId = document.getElementById(this.Id);
+    return buttonId.addEventListener(this.event, this.funcName, false);
+  }
 }
 
-export { replaceButton, buttonEventListener, removeElement, makeNewButton };
+export { replaceButton, removeElement, makeNewButton, EventListener };

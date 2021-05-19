@@ -2,23 +2,28 @@
 import countToTime from './time-handling-util.js';
 import {
   replaceButton,
-  buttonEventListener,
   removeElement,
-  makeNewButton
+  makeNewButton,
+  EventListener
 } from './button-util.js';
 
-// EventListenerの設定
-buttonEventListener('start', 'click', startBtn);
+// 各ボタンのEventListenerの設定
+const startEventListener = new EventListener('start', 'click', startBtn);
+const stopEventListener = new EventListener('stop', 'click', stop);
+const resetEventListener = new EventListener('reload', 'click', ()=> { location.reload() });
+
+startEventListener.set();
+
 let buttonExisted = document.getElementById('reload') || null;
   if (buttonExisted) { // リセットボタンがあったらイベントを設定する
-    buttonEventListener('reload', 'click', ()=> { location.reload() }); // リセットボタンが押されたらリロード
+    resetEventListener.set(); // リセットボタンが押されたらリロード
   }
 
 // スタートボタンの動作、押されたらスタートしてストップボタンと差し替える
 function startBtn() {
   start();
   replaceButton('start-button', 'start', 'button', 'stop', 'Stop');
-  buttonEventListener('stop', 'click', stop);
+  stopEventListener.set();
 
   const buttonExisted = document.getElementById('reload') || null;
   if (buttonExisted) { // リセットボタンがあったら削除する
@@ -30,9 +35,9 @@ function startBtn() {
 function stop() {
   clearInterval(setIntervalID);
   replaceButton('start-button', 'stop','button', 'start', 'Start');
-  buttonEventListener('start', 'click', startBtn);
+  startEventListener.set();
   makeNewButton('reset-button', 'button', 'reload', 'button', 'Reset');
-  buttonEventListener('reload', 'click', ()=> { location.reload() });
+  resetEventListener.set();
 }
 let count = 0;
 let setIntervalID = null;
