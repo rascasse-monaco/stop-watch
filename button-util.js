@@ -21,6 +21,7 @@ class CreateChildElement {
     this.newElementId = newElementId;
     this.newElementClassName = newElementClassName;
     this.innerHTMLText = innerHTMLText;
+    this.param = null;
   }
   create(){
     const parent = document.getElementById(this.parentElementId);
@@ -30,7 +31,9 @@ class CreateChildElement {
     newChild.setAttribute('class', this.newElementClassName);
     newChild.setAttribute('id', this.newElementId);
     newChild.innerHTML = this.innerHTMLText;
-  }
+
+    return this.param = { parent: parent, newChild: newChild };
+  }  
 }
 
 //子要素リプレース用関数
@@ -40,17 +43,10 @@ class ReplaceChildElement extends CreateChildElement {
     this.oldChildElementId = oldChildElementId;
   }
   replace(){
-    const parent = document.getElementById(this.parentElementId);
-    const newChild = document.createElement(this.newElement);
+    super.create();
+    console.log(this.param);
     const oldChild = document.getElementById(this.oldChildElementId);
-
-    parent.appendChild(newChild);
-    newChild.setAttribute('type', this.newElement);
-    newChild.setAttribute('class', this.newElementClassName);
-    newChild.setAttribute('id', this.newElementId);
-    newChild.innerHTML = this.innerHTMLText;
-  
-    parent.replaceChild(newChild, oldChild);
+    this.param.parent.replaceChild(this.param.newChild, oldChild);
   }
 }
 
