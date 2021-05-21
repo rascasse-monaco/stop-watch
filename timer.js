@@ -16,30 +16,38 @@ startEventListener.add();
 
 let buttonExisted = document.getElementById('reload') || null;
   if (buttonExisted) { // リセットボタンがあったらイベントを設定する
-    resetEventListener.add(); // リセットボタンが押されたらリロード
+    resetEventListener.add(); // リセットボタンが押されたらリロードする動作を設定
   }
 
 // スタートボタンの動作、押されたらスタートしてストップボタンと差し替える
-const replaceStartToStop = new ReplaceChildElement('start-button', 'button', 'stop', 'button', 'Stop', 'start');
+const replaceStartToStop = new ReplaceChildElement();
 function startBtn() {
   start();
-  replaceStartToStop.replace();
+  // スタートからストップへボタンの置き換え
+  replaceStartToStop.getParentElement('button-area');
+  replaceStartToStop.create('button', 'button', 'stop', 'Stop');
+  replaceStartToStop.from('start');
   stopEventListener.add();
-
+  // リセットボタンがある場合は削除する
   const buttonExisted = document.getElementById('reload') || null;
-  if (buttonExisted) { // リセットボタンがあったら削除する
+  if (buttonExisted) {
     removeElement('reload');
   }
 }
 
 // ストップボタンの動作、押されたらストップしてスタートボタンと差し替える
-const createChildElement = new CreateChildElement('reset-button', 'button', 'reload', 'button', 'Reset');
-const replaceStopToStart = new ReplaceChildElement('start-button', 'button', 'start', 'button', 'start', 'stop');
+const createChildElement = new CreateChildElement();
+const replaceStopToStart = new ReplaceChildElement();
 function stop() {
   clearInterval(setIntervalID);
-  replaceStopToStart.replace();
+  // ストップからスタートへボタンの置き換え
+  replaceStopToStart.getParentElement('button-area');
+  replaceStopToStart.create('button', 'button', 'start', 'Start')
+  replaceStopToStart.from('stop');
   startEventListener.add();
-  createChildElement.create();
+  // リセットボタン作成
+  createChildElement.getParentElement('reset-button');
+  createChildElement.create('button', 'button', 'reload', 'Reset');
   resetEventListener.add();
 }
 

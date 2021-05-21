@@ -15,39 +15,36 @@ class EventListener {
 
 // 子要素作成クラス
 class CreateChildElement {
-  constructor(parentElementId, newElement, newElementId, newElementClassName, innerHTMLText) {
-    this.parentElementId = parentElementId;
-    this.newElement = newElement;
-    this.newElementId = newElementId;
-    this.newElementClassName = newElementClassName;
-    this.innerHTMLText = innerHTMLText;
+  constructor() {
+    this.parentElement;
     this.param = null;
   }
-  create(){
-    const parent = document.getElementById(this.parentElementId);
-    const newChild = document.createElement(this.newElement);
-    parent.appendChild(newChild);
-    newChild.setAttribute('type', this.newElement);
-    newChild.setAttribute('class', this.newElementClassName);
-    newChild.setAttribute('id', this.newElementId);
-    newChild.innerHTML = this.innerHTMLText;
+  getParentElement(elementId) { // 親要素のID取得
+    const element = document.getElementById(elementId)
+    return this.parentElement = element;
+  }
+  create(element, elementClass, elementId, innerText) { // 子要素を作成
+    const childElement = document.createElement(element);
+    this.parentElement.appendChild(childElement);
+    childElement.setAttribute('type', element);
+    childElement.setAttribute('class', elementClass);
+    childElement.setAttribute('id', elementId);
+    childElement.innerHTML = innerText;
 
-    return this.param = { parent: parent, newChild: newChild };
+    return this.param = { parent: this.parentElement, newChild: childElement }; // 親要素と子要素をコンストラクタのparamに設定する。
   }  
 }
 
 //子要素リプレース用関数
 class ReplaceChildElement extends CreateChildElement {
-  constructor(parentElementId, newElement, newElementId, newElementClassName, innerHTMLText, oldChildElementId) {
-    super(parentElementId, newElement, newElementId, newElementClassName, innerHTMLText);
-    this.oldChildElementId = oldChildElementId;
+  constructor() {
+    super();
   }
-  replace(){
-    super.create();
-    console.log(this.param);
-    const oldChild = document.getElementById(this.oldChildElementId);
-    this.param.parent.replaceChild(this.param.newChild, oldChild);
+  from(oldChildElementId) { // 置換え前の要素のIDを取得
+    const oldChildElement = document.getElementById(oldChildElementId);
+    this.param.parent.replaceChild(this.param.newChild, oldChildElement);
   }
+
 }
 
 // エレメント削除関数
