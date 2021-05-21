@@ -5,28 +5,28 @@ import {
   EventListener,
   CreateChildElement,
   ReplaceChildElement
-} from './button-util.js';
+} from './html-util.js';
 
 // 各ボタンのEventListenerの設定
 const startEventListener = new EventListener('start', 'click', startBtn);
-const stopEventListener = new EventListener('stop', 'click', stop);
-const resetEventListener = new EventListener('reload', 'click', ()=> { location.reload() });
-
 startEventListener.add();
 
+// リセットボタンがあったらイベントを設定する
 let buttonExisted = document.getElementById('reload') || null;
-  if (buttonExisted) { // リセットボタンがあったらイベントを設定する
-    resetEventListener.add(); // リセットボタンが押されたらリロードする動作を設定
-  }
+if (buttonExisted) {
+  const resetEventListener = new EventListener('reload', 'click', ()=> { location.reload() });
+  resetEventListener.add(); // リセットボタンが押されたらリロードする動作を設定
+}
 
 // スタートボタンの動作、押されたらスタートしてストップボタンと差し替える
-const replaceStartToStop = new ReplaceChildElement();
 function startBtn() {
   start();
+  const replaceChildElement = new ReplaceChildElement();
   // スタートからストップへボタンの置き換え
-  replaceStartToStop.getParentElement('button-area');
-  replaceStartToStop.create('button', 'button', 'stop', 'Stop');
-  replaceStartToStop.from('start');
+  replaceChildElement.getParentElement('button-area');
+  replaceChildElement.create('button', 'button', 'stop', 'Stop');
+  replaceChildElement.from('start');
+  const stopEventListener = new EventListener('stop', 'click', stop);
   stopEventListener.add();
   // リセットボタンがある場合は削除する
   const buttonExisted = document.getElementById('reload') || null;
@@ -36,18 +36,20 @@ function startBtn() {
 }
 
 // ストップボタンの動作、押されたらストップしてスタートボタンと差し替える
-const createChildElement = new CreateChildElement();
-const replaceStopToStart = new ReplaceChildElement();
 function stop() {
   clearInterval(setIntervalID);
   // ストップからスタートへボタンの置き換え
-  replaceStopToStart.getParentElement('button-area');
-  replaceStopToStart.create('button', 'button', 'start', 'Start')
-  replaceStopToStart.from('stop');
+  const replaceChildElement = new ReplaceChildElement();
+  replaceChildElement.getParentElement('button-area');
+  replaceChildElement.create('button', 'button', 'start', 'Start')
+  replaceChildElement.from('stop');
+  const startEventListener = new EventListener('start', 'click', startBtn);
   startEventListener.add();
   // リセットボタン作成
+  const createChildElement = new CreateChildElement();
   createChildElement.getParentElement('reset-button');
   createChildElement.create('button', 'button', 'reload', 'Reset');
+  const resetEventListener = new EventListener('reload', 'click', ()=> { location.reload() });
   resetEventListener.add();
 }
 
