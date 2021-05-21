@@ -8,7 +8,7 @@ import {
 } from './html-util.js';
 
 // 各ボタンのEventListenerの設定
-const startEventListener = new EventListener('start', 'click', startBtn);
+const startEventListener = new EventListener('start', 'click', start);
 startEventListener.add();
 
 // リセットボタンがあったらイベントを設定する
@@ -19,8 +19,8 @@ if (buttonExisted) {
 }
 
 // スタートボタンの動作、押されたらスタートしてストップボタンと差し替える
-function startBtn() {
-  start();
+function start() {
+  timerStart();
   const replaceChildElement = new ReplaceChildElement();
   // スタートからストップへボタンの置き換え
   replaceChildElement.getParentElement('button-area');
@@ -43,7 +43,7 @@ function stop() {
   replaceChildElement.getParentElement('button-area');
   replaceChildElement.create('button', 'button', 'start', 'Start')
   replaceChildElement.from('stop');
-  const startEventListener = new EventListener('start', 'click', startBtn);
+  const startEventListener = new EventListener('start', 'click', start);
   startEventListener.add();
   // リセットボタン作成
   const createChildElement = new CreateChildElement();
@@ -56,7 +56,7 @@ function stop() {
 let count = 0;
 let setIntervalID = null;
 // タイマー表示&時間更新用関数
-function start() {
+function timerStart() {
   setIntervalID = setInterval(() => {
     count++
     document.getElementById('sec').innerText =
