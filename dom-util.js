@@ -36,7 +36,7 @@ class CreateChildElement {
   }  
 }
 
-//子要素リプレース用関数
+//子要素リプレース用クラス
 class ReplaceChildElement extends CreateChildElement {
   constructor() {
     super();
@@ -48,7 +48,7 @@ class ReplaceChildElement extends CreateChildElement {
 
 }
 
-// エレメント削除関数
+// エレメント削除クラス
 function removeElement(ElementID) {
   const element = document.getElementById(ElementID)
   element.remove();
