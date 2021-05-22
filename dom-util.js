@@ -2,14 +2,15 @@
 
 //ボタンのaddEventListener設定用クラス
 class EventListener {
-  constructor(Id, event, funcName) {
-    this.Id = Id;
-    this.event = event;
-    this.funcName = funcName;
+  constructor() {
+    this.id;
   }
-  add(){
-    const buttonId = document.getElementById(this.Id);
-    buttonId.addEventListener(this.event, this.funcName, false);
+  getId(id) {
+    const buttonId = document.getElementById(id);
+    return this.id = buttonId;
+  }
+  add(type, func){
+   this.id.addEventListener(type, func, false);
   }
 }
 
