@@ -48,10 +48,20 @@ class ReplaceChildElement extends CreateChildElement {
 
 }
 
-// エレメント削除クラス
-function removeElement(ElementID) {
-  const element = document.getElementById(ElementID)
-  element.remove();
+// エレメント削除関数クラス
+class RemoveElement {
+  constructor() {
+  }
+  remove(elementId) {
+    const element = document.getElementById(elementId);
+    element.remove();
+  }
+  removeAllChildren(elementId) {
+    const element = document.getElementById(elementId);
+    while (element.firstChild) {
+      element.removeChild(element.firstChild);
+    }
+  }
 }
 
-export { removeElement, EventListener, CreateChildElement, ReplaceChildElement };
+export { EventListener, CreateChildElement, ReplaceChildElement, RemoveElement };

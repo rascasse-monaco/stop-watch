@@ -1,30 +1,21 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="timer.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, i	nitial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
     <title>ストップウォッチ</title>
   </head>
-<body>
-  <div id="main">
-    <div id="watch-area">
-
-      <div class="watchtext">
-        <div id="div-hour">
-          <span class="watchnum" id="hour">00</span>hr.
-        </div> 
-          <span class="watchnum" id="min">00</span>min.<span class="watchnum" id="sec">00.0</span>sec.
-      </div>
-
-      <div id="button-area">
-        <button type="button" class="button" id="start">Start</button>
-      </div>
-      <div id='reset-button'></div>
-
+  <body>
+    <div id="main">
+      <div class="title">ストップウォッチ（用途別）</div>
+      <div><a href="for-browser.html"><button class="button">ブラウザ用</button></a></div>
+      <div class="text">ブラウザで表示します</div>
+      <div><a href="for-xsplit.html"><button class="button">XSplit Broadcaster用</button></a></div>
+      <div class="text">URLをXsplit Broadcasterのウェブページのソースにコピーして下さい。<br>Xsplit Broadcasterソフトウェアの画面から直接操作できます。</div>
+      <div><a href="for-obs.html"><button class="button">OBS Studio用</button></a></div>
+      <div class="text">OBSの画面キャプチャから使用します。ブラウザ表示の背景色を変更してグリーンバックにすることにより、ソースのフィルタからクロマキー合成をすることができます。</div>
     </div>
-  </div>
-    <script type="module" src="main.js"></script>
+    
   </body>
 </html>

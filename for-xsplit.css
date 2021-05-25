@@ -1,0 +1,62 @@
+*{
+  font-family: 'Press Start 2P', cursive;
+  padding: 2px 2px;
+  color: #fff;
+  text-shadow:
+  black 2px 0px,  black -2px 0px,	black 0px -2px, black 0px 2px,
+  black 2px 2px , black -2px 2px,	black 2px -2px, black -2px -2px,
+  black 1px 2px,  black -1px 2px,	black 1px -2px, black -1px -2px,
+  black 2px 1px,  black -2px 1px,	black 2px -1px, black -2px -1px;
+  line-height: 1;
+}
+.button {
+  color: #fff;
+  font-size: 12px;
+  text-shadow: none;
+  height: 30px;
+  width: 310px;
+  border-style: none;
+  border-radius: 3px;
+}
+
+.watchtext {
+  font-size: 10px;
+  width: 314px;
+}
+
+.watchnum {
+  font-size: 38px;
+}
+#button-area {
+  width: 314px;
+}
+
+#start {
+  background-color: rgb(64, 101, 189);
+}
+
+#stop {
+  background-color: rgb(53, 55, 61);
+}
+
+#reload {
+  background-color:  rgb(189, 89, 64);
+}
+#div-hour {
+  margin-bottom: 4px;
+}
+#hour {
+  font-size: 20px;
+}
+
+#watch-area {
+  width: 314px;
+}
+
+html {
+  width: 322px;
+}
+body {
+  margin: 0px;
+  width: 318px;
+}
