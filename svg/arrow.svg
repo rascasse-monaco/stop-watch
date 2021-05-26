@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.2.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="レイヤー_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 600 600" style="enable-background:new 0 0 600 600;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+</style>
+<g>
+	<circle class="st0" cx="300" cy="300" r="198.3"/>
+	<path d="M300,118.2c48.6,0,94.2,18.9,128.5,53.2s53.2,80,53.2,128.5s-18.9,94.2-53.2,128.5s-80,53.2-128.5,53.2
+		s-94.2-18.9-128.5-53.2s-53.2-80-53.2-128.5s18.9-94.2,53.2-128.5S251.4,118.2,300,118.2 M300,85.2C181.4,85.2,85.2,181.4,85.2,300
+		S181.4,514.8,300,514.8S514.8,418.6,514.8,300S418.6,85.2,300,85.2L300,85.2z"/>
+</g>
+<g>
+	<polygon points="210.2,310.8 254.1,310.8 254.1,198.3 345.9,198.3 345.9,310.8 389.8,310.8 300,400.6 	"/>
+	<path d="M329.4,214.8v79.5v33H350l-50,50l-50-50h20.6v-33v-79.5H329.4 M362.4,181.8H237.6v112.5h-67.3L300,423.9l129.6-129.6h-67.3
+		V181.8L362.4,181.8z"/>
+</g>
+</svg>

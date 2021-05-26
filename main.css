@@ -1,27 +1,52 @@
-*{
+a:hover {
+  text-decoration: none;
+  color: rgb(64, 101, 189);
+  }
 
-  padding: 2px 2px;
+.arrow{
+  width: 45px;
+  height: 45px;
+  margin: auto;
+  margin-bottom: 20px;
+  display: block;
 }
+
 .button {
   color: #fff;
   background-color: rgb(64, 101, 189);
   font-size: 16px;
   text-shadow: none;
-  height: 30px;
+  height: 40px;
   width: 310px;
+  margin: auto;
   margin-bottom: 5px;
   border-style: none;
   border-radius: 3px;
+  display: block;
+  transition: 0.5s ease;
+}
+
+.button:hover{
+  color: lightgray;
+  background-color: rgb(40, 57, 97);
+}
+.button-area {
+  margin: auto;
+}
+
+.card {
+  margin-bottom: 20px;
+  border-top: 2px solid gray;
 }
 
 .title {
-  font-size: 18px;
   text-align: center;
 }
 
 .text {
   font-size: 14px;
   width: 310px;
+  margin: 0 auto;
   margin-bottom: 20px;
 }
 
@@ -31,8 +56,10 @@ html {
 }
 body {
   width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+}
+
+#main {
+  width: 500px;
 }

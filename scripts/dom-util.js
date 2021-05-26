@@ -58,7 +58,7 @@ class RemoveElement {
   }
   removeAllChildren(elementId) {
     const element = document.getElementById(elementId);
-    while (element.firstChild) {
+    while(element.firstChild) {
       element.removeChild(element.firstChild);
     }
   }

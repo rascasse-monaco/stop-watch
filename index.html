@@ -2,20 +2,44 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, i	nitial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="main.css">
     <title>ストップウォッチ</title>
   </head>
   <body>
     <div id="main">
-      <div class="title">ストップウォッチ（用途別）</div>
-      <div><a href="for-browser.html"><button class="button">ブラウザ用</button></a></div>
-      <div class="text">ブラウザで表示します</div>
-      <div><a href="for-xsplit.html"><button class="button">XSplit Broadcaster用</button></a></div>
-      <div class="text">URLをXsplit Broadcasterのウェブページのソースにコピーして下さい。<br>Xsplit Broadcasterソフトウェアの画面から直接操作できます。</div>
-      <div><a href="for-obs.html"><button class="button">OBS Studio用</button></a></div>
-      <div class="text">OBSの画面キャプチャから使用します。ブラウザ表示の背景色を変更してグリーンバックにすることにより、ソースのフィルタからクロマキー合成をすることができます。</div>
+      <h2 class="title">ストップウォッチ</h2>
+      <div class="card">
+        <h2 class="title">ブラウザ用</h2>
+        <div class="text">Google Chrome等のウェブブラウザ用です。ブラウザでそのまま使用できます。</div>
+          <img src="/svg/arrow.svg" alt="アイコン" class="arrow">
+        <div class="button-area">
+          <a href="for-browser.html">
+            <button class="button">for Web Browser</button>
+          </a>
+        </div>
+      </div>
+      <div class="card">
+        <h2 class="title">Xsplit Broadcaster用</h2>
+        <div class="text">　Xsplit Broadcasterのソースにウェブページを追加し、コピーしたURLをペーストして使用してください。ボタンはXsplit Broadcasterソフトウェアの画面から直接操作できます。</div>
+        <img src="/svg/arrow.svg" alt="アイコン" class="arrow">
+        <div class="button-area">
+          <a href="for-xsplit.html">
+            <button class="button">for XSplit Broadcaster</button>
+          </a>
+        </div>
+      </div>
+      <div class="card">
+        <h2 class="title">OBS Studio用</h2>
+        <div class="text">OBSの画面キャプチャから使用します。ウィンドウキャプチャを行いトリミングを設定することにより取り込みます。また、ブラウザ表示の背景色を変更してグリーンバックにすることにより、ソースのフィルタからクロマキー合成をすることができます。</div>
+        <img src="/svg/arrow.svg" alt="アイコン" class="arrow">
+        <div class="button-area">
+          <a href="for-obs.html">
+          <button class="button">for OBS Studio</button>
+          </a>
+        </div>
+      </div>
     </div>
-    
   </body>
 </html>

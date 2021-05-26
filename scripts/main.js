@@ -51,6 +51,11 @@ function start() {
     const removeElement = new RemoveElement();
     removeElement.remove('setting'); // Settingボタン自身を消去
   }
+  const colorSetButtons = document.getElementById('setting-normal-button');
+  if(colorSetButtons) {
+    const removeElement = new RemoveElement();
+    removeElement.removeAllChildren('setting-area');
+  }
   // スタートからストップへボタンの置き換え
   const replaceChildElement = new ReplaceChildElement();
   replaceChildElement.getParentElement('button-area');
@@ -91,10 +96,6 @@ function createSettings() {
   const addEventListener = new EventListener();
   const removeElement = new RemoveElement();
   removeElement.remove('setting'); // Settingボタン自身を消去
-  // スタートボタンの操作を無効化して色を変える
-  replaceChildElement.getParentElement('button-area');
-  replaceChildElement.create('button', 'button', 'disable-start', 'Start');
-  replaceChildElement.from('start');
 
   // 背景色を変えるボタンを３つ設置する
   // 透明にするボタン
@@ -125,22 +126,7 @@ function createSettings() {
     backgroundColor = 'rgb(0, 255, 0)';
     document.body.style.backgroundColor = backgroundColor;
   })
-  // setボタンの設置
-  createChildElement.getParentElement('set-button-area');
-  createChildElement.create('button', 'button', 'set', 'Set');
-  addEventListener.getId('set');
-  addEventListener.add('click', () => {
-    // setボタン以外を消去してスタートボタンを設置
-    // ストップからスタートへボタンの置き換え
-    const replaceChildElement = new ReplaceChildElement();
-    replaceChildElement.getParentElement('button-area');
-    replaceChildElement.create('button', 'button', 'start', 'Start')
-    replaceChildElement.from('disable-start');
-    // StartボタンへEventListenerの設定
-    addEventListerToStart();
-    removeElement.removeAllChildren('setting-area');
-    removeElement.remove('set');
-  })
+
 }
 
 function reset() {
